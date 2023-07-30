@@ -26,10 +26,11 @@ namespace Skillbox_Homework12
         }
         #endregion
 
-        //public DepositBill? Deposit(int BillId, decimal Sum)
-        //{
-        //    this.Balance += Sum;
-        //    return this;
-        //}
+
+        public DepositBill? Deposit(int BillId, decimal Sum)
+        {
+            this.Balance += Sum;
+            return this;
+        }
     }
 }

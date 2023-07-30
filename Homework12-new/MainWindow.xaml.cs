@@ -28,22 +28,28 @@ namespace Homework12_new
             InitializeComponent();
             Clients = new ClientRepository<Client>();
             //ClientRepository<Client>.DeserializeJson("Serialization.txt", out Clients); 
-            //Clients.DeserializeJson("Serialization.txt");
-            Client newClient = new VipClient();
-            Client newClient2 = new LegalPerson();
 
-            newClient.OpenBill(EBillType.DepositBill);
-            newClient2.OpenBill(EBillType.NonDepositBill);
+            // Раскомментировать
+            Clients.DeserializeJson("Serialization.txt");
+            // *** Раскомментировать
 
-            newClient.Name = "Василий";
-            newClient2.Name = "Петька";
+            // Закомментировать
+            //Client newClient = new VipClient();
+            //Client newClient2 = new LegalPerson();
+
+            //newClient.OpenBill(EBillType.DepositBill);
+            //newClient2.OpenBill(EBillType.NonDepositBill);
+
+            //newClient.Name = "Василий";
+            //newClient2.Name = "Петька";
 
 
-            Clients.AddClient(newClient);
-            Clients.AddClient(newClient2);
+            //Clients.AddClient(newClient);
+            //Clients.AddClient(newClient2);
 
-            newClient.Deposit(1, 500.0m);
-            newClient.Transfer(newClient.Bills[0] as DepositBill, newClient2.Bills[0], 300.0m);
+            //newClient.Deposit(1, 500.0m);
+            //newClient.Transfer(newClient.Bills[0] as DepositBill, newClient2.Bills[0], 300.0m);
+            // *** Закомментировать
 
             ClientsViewGrid.ItemsSource = Clients.ClientList;
 
