@@ -32,22 +32,16 @@ namespace Skillbox_Homework12
         /// </summary>
         public void SerializeJson()
         {
-            string json = JsonConvert.SerializeObject(this);
+
+            JsonSerializerSettings serializeSettings = new JsonSerializerSettings
+            {
+                TypeNameHandling = TypeNameHandling.All
+            };
+            string json = JsonConvert.SerializeObject(ClientList, Formatting.Indented, serializeSettings);
+            //string json = JsonConvert.SerializeObject(this);
             File.WriteAllText("Serialization.txt", json);
         }
 
-        //public static bool DeserializeJson(string path, out ClientRepository<T>? res)
-        //{
-        //    if (!File.Exists(path))
-        //    {
-        //        res = null;
-        //        return false;
-        //    }
-        //    string json = File.ReadAllText(path);
-
-        //    res = JsonConvert.DeserializeObject<ClientRepository<T>>(json);
-        //    return true;
-        //}
 
         /// <summary>
         /// Десериализация
@@ -62,8 +56,13 @@ namespace Skillbox_Homework12
             }
             string json = File.ReadAllText(path);
 
-            ClientList = JsonConvert.DeserializeObject<ObservableCollection<T>>(json);
-            return true;
+            JsonSerializerSettings serializerSettings = new JsonSerializerSettings
+            {
+                TypeNameHandling = TypeNameHandling.All
+            };
+            //ClientList = JsonConvert.DeserializeObject<ObservableCollection<T>>(json);
+            ClientList = JsonConvert.DeserializeObject<ObservableCollection<T>>(json, serializerSettings);
+            return true; 
         }
 
 

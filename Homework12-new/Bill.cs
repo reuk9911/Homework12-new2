@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Skillbox_Homework12
 {
-    public abstract class Bill : IDisposable, INotifyPropertyChanged
+    public class Bill : IDisposable, INotifyPropertyChanged
     {
         #region Поля и Свойства
         
@@ -67,7 +67,7 @@ namespace Skillbox_Homework12
         /// </summary>
         public Bill()
         {
-            this.BillType = "";
+            this.BillType = "Bill";
             this.Balance = 0.0m;
             this.Id = IdGen.GetNewId();
         }

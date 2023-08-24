@@ -53,7 +53,7 @@
                             <StackPanel 
                         HorizontalAlignment="Left" 
                         VerticalAlignment="Top">
-                                <RadioButton x:Name="rbClient" IsChecked="True" Content="Клиент"/>
+                                <RadioButton x:Name="rbClient" IsChecked="True" Content="Физическое лицо"/>
                                 <RadioButton x:Name="rbVipClient" Content="Vip клиент"/>
                                 <RadioButton x:Name="rbLegalPerson" Content="Юридическое лицо"/>
                             </StackPanel>
